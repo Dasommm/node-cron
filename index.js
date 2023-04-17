@@ -11,9 +11,9 @@ const logger = winston.createLogger({
         new winston.transports.File({ filename : logFilePath })
     ]
 })
-let today = new Date();
 
-cron.schedule('* * * * *', () => {
-  console.log('running a task every minute');
-  logger.info(today.toLocaleTimeString, "running!!!");
+cron.schedule('*/10 * * * * *', () => {
+    console.log('running a task every 10 seconds');
+    let today = new Date();
+  logger.info({message: "running!!!", timestamp : today.toLocaleTimeString()});
 });
