@@ -12,8 +12,8 @@ const logger = winston.createLogger({
     ]
 })
 
-cron.schedule('*/10 * * * * *', () => {
-    console.log('running a task every 10 seconds');
+cron.schedule('*/3 * * * * *', () => {
+    console.log('running a task every 3 seconds');
     let today = new Date();
   logger.info({message: "running!!!", timestamp : today.toLocaleTimeString()});
 });
